@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>evilbunny 🐰 — 可爱系亲子 · 女宝穿搭</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #FFB7C5;
+      --rose: #E8628A;
+      --cream: #FFF8F0;
+      --brown: #5C3A21;
+      --gold: #C8956C;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 50%, #FFF8F0 100%);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '🐰';
+      font-size: 120px;
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      opacity: 0.15;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
+    .logo span { color: var(--brown); }
+    h1 {
+      font-size: clamp(36px, 8vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--brown);
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--rose);
+    }
+    .tagline {
+      font-size: clamp(16px, 3vw, 22px);
+      color: #999;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rose);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(232,98,138,0.3);
+    }
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(232,98,138,0.4);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .feature-icon { font-size: 48px; margin-bottom: 16px; }
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 14px;
+      color: #888;
+      line-height: 1.6;
+    }
+    .products {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--brown);
+    }
+    .section-sub {
+      font-size: 16px;
+      color: #999;
+      margin-bottom: 48px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      background: linear-gradient(135deg, #FFE4EC, #FFF0F5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .product-info { padding: 20px; }
+    .product-tag {
+      display: inline-block;
+      background: #FFF0F5;
+      color: var(--rose);
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--rose);
+    }
+    .product-price small {
+      font-size: 14px;
+      font-weight: 400;
+      color: #ccc;
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+    footer a { color: var(--pink); text-decoration: none; }
+    @media (max-width: 600px) {
+      .hero::before { font-size: 80px; top: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="logo">evil<span>bunny</span></div>
+  <h1>给宝贝的<br><em>第一份可爱</em></h1>
+  <p class="tagline">专为 0-6 岁女宝打造的穿搭品牌<br>柔软面料 · 童趣设计 · 亲肤舒适</p>
+  <a href="#products" class="cta">探索新品 ▼</a>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <div class="feature-icon">🌿</div>
+    <div class="feature-title">有机棉面料</div>
+    <div class="feature-desc">A类婴幼儿标准，柔软透气，宝贝穿上就不想脱</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎀</div>
+    <div class="feature-title">童趣设计</div>
+    <div class="feature-desc">原创图案，每一件都是独一无二的小可爱</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">💛</div>
+    <div class="feature-title">高性价比</div>
+    <div class="feature-desc">出厂价直出，品质不打折，价格超友好</div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <h2 class="section-title">新品上市</h2>
+  <p class="section-sub">每一件都是精挑细选</p>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img">👗</div>
+      <div class="product-info">
+        <span class="product-tag">爆款</span>
+        <div class="product-name">碎花公主裙 春夏款</div>
+        <div class="product-price">¥89 <small>¥129</small></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">🐰</div>
+      <div class="product-info">
+        <span class="product-tag">新品</span>
+        <div class="product-name">卡通兔兔T恤</div>
+        <div class="product-price">¥49 <small>¥79</small></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">🌸</div>
+      <div class="product-info">
+        <span class="product-tag">套装</span>
+        <div class="product-name">荷叶边两件套</div>
+        <div class="product-price">¥99 <small>¥149</small></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">🧸</div>
+      <div class="product-info">
+        <span class="product-tag">限量</span>
+        <div class="product-name">熊熊背带裤</div>
+        <div class="product-price">¥79 <small>¥119</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 evilbunny 🐰 — 专注女宝穿搭</p>
+  <p style="margin-top:8px;">联系：hello@evilbunny.cn</p>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
